@@ -1,30 +1,69 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view/>
+  <header>
+    <nav>
+      <h2>Wybierz opcje:</h2>
+      <section class="home__content">
+        <router-link to="/"><button class="home__content-item" name="convert" id="convert"><label for="convert">Konwertuj Walute</label></button></router-link>
+        <router-link to="/about"><button class="home__content-item" name="fluctuation" id="fluctuation"><label for="fluctuation">Waluta Pomiędzy</label></button></router-link>
+        <router-link to="/about"><button class="home__content-item" name="latest" id="latest"><label for="latest">Obecna waluta</label></button></router-link>
+        <router-link to="/about"><button class="home__content-item" name="timeseries" id="timeseries"><label for="timeseries">Waluta Dniowa</label></button></router-link>
+        <router-link to="/about"><button class="home__content-item" name="date" id="date"><label for="date">Waluta datowa</label></button></router-link>
+      </section>
+    </nav>
+  </header>
+  <main>
+    <router-view/>
+  </main>
+  <footer>
+  </footer>
 </template>
+<script setup lang="ts">
+import { computed } from '@vue/reactivity'
+import { onMounted, ref } from 'vue'
+import axios, { HeadersDefaults } from 'axios'
+import store from '@/store/index'
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+const info = ref<any>()
+if (!localStorage.data) {
+  onMounted(async () => {
+    await axios.get('https://api.apilayer.com/exchangerates_data/symbols', { headers: { apikey: process.env.VUE_APP_API_KEY } })
+      .then(res => {
+        store.state.data = res.data.symbols
+        localStorage.data = JSON.stringify(res.data.symbols)
+      })
+  })
+} else {
+  store.state.data = JSON.parse(localStorage.data)
 }
 
-nav {
-  padding: 30px;
+</script>
+<style lang="scss">
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  display: grid;
+  justify-content: center;
+}
+#app {
+  display: grid;
+  justify-content: center;
+  min-width: 320px;
+  max-width: 1440px;
+}
+main {
+  min-height: 90vh;
+  width: 100%;
+}
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
+.home__content {
 
-    &.router-link-exact-active {
-      color: #42b983;
-    }
+  &-item {
+    padding: 10px;
+    margin: 10px;
   }
 }
+
 </style>
