@@ -4,7 +4,7 @@
       <h2>Wybierz opcje:</h2>
       <section class="home__content">
         <router-link to="/"><button class="home__content-item" name="convert" id="convert"><label for="convert">Konwertuj Walute</label></button></router-link>
-        <router-link to="/about"><button class="home__content-item" name="fluctuation" id="fluctuation"><label for="fluctuation">Waluta Pomiędzy</label></button></router-link>
+        <router-link to="/fluctuation"><button class="home__content-item" name="fluctuation" id="fluctuation"><label for="fluctuation">Waluta Pomiędzy</label></button></router-link>
         <router-link to="/about"><button class="home__content-item" name="latest" id="latest"><label for="latest">Obecna waluta</label></button></router-link>
         <router-link to="/about"><button class="home__content-item" name="timeseries" id="timeseries"><label for="timeseries">Waluta Dniowa</label></button></router-link>
         <router-link to="/about"><button class="home__content-item" name="date" id="date"><label for="date">Waluta datowa</label></button></router-link>

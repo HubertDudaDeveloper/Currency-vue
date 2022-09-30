@@ -7,6 +7,11 @@ export default createStore({
       amount: null,
       to: {}
     },
+    fluctuation: {
+      start: '',
+      end: '',
+      symbols: ''
+    },
     symbols: '',
     data: {},
     date: ''

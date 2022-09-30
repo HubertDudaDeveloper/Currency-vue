@@ -7,12 +7,12 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import('../views/ConvertCurrency.vue')
   },
   {
-    path: '/about',
-    name: 'about',
+    path: '/fluctuation',
+    name: 'fluctuation',
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
+    component: () => import(/* webpackChunkName: "about" */ '../views/FluctuationCurrency.vue')
   }
 ]
 
