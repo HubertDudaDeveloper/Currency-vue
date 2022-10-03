@@ -12,6 +12,10 @@ export default createStore({
       end: '',
       symbols: ''
     },
+    latest: {
+      symbols: '',
+      base: ''
+    },
     symbols: '',
     data: {},
     date: ''

@@ -26,5 +26,8 @@ function SelectedOption (event) {
 .selectoption {
   display: flex;
   flex-direction: column;
+  &__item {
+    border-radius: 25px;
+  }
 }
 </style>

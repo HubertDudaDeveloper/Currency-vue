@@ -4,8 +4,8 @@
     <SelectOption :prop="symbols" :option="store.state.data" @SelectedValue="saveSymbols"/>
     <SelectDate :prop="startDate" @sendDate="saveDate" />
     <SelectDate :prop="endDate" @sendDate="saveDate" />
-    <button @click="fluctuation">Klik</button>
-    <p id="result"></p>
+    <button @click="fluctuation">Porównaj!</button>
+    <h3 id="result"></h3>
   </div>
 </template>
 <script setup lang="ts">

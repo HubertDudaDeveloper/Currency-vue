@@ -1,5 +1,5 @@
 <template>
-  <form class="convert">
+  <div class="convert">
     <SelectOption :prop="base" :option="store.state.data" @SelectedValue="postSelectBase"/>
     <SelectOption :prop="to" :option="store.state.data" @SelectedValue="postSelectTo"/>
     <label for="amount">Kwota waluty:</label>
@@ -9,7 +9,7 @@
       <strong id="result"></strong>
     </h3>
     </div>
-  </form>
+  </div>
 </template>
 
 <script setup lang="ts">
